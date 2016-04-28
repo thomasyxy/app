@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="shortcut icon" href="images/favicon.ico")
+    script(src='/javascripts/jquery-2.1.4.min.js')
+    script(src='/javascripts/common.js')
+    script(src='/test.js')
+  body
+    header#kbqn-top
+      a.title(href='#')
+        img.icon(src='images/icon.jpg' title='网站首页' alt='网站首页')
+        h1 #{title}
+      p.welcome #{welcome}
+    nav#kbqn-nav
+      img.nav_cat(src='images/nav_cat.gif')
+      ul.nav-list
+        each val, index in [['HOME','/'], ['BLOG','blog'], ['ABOUT','about'], ['DATA','data'],['TOOL','tool']]
+          li.item
+            a.itemlink(href='#{val[1]}') #{val[0]}
+    div#top
+      img#bone(src="images/bone.png" title='返回顶部' alt="")
+    block content

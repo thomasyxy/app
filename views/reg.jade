@@ -1,0 +1,54 @@
+link(rel='stylesheet' href='./stylesheets/style.css')
+h1 Welcome to #{title}
+.toLeft
+form(method='POST' action='/reg')
+	table(align='center' border='1' cellpadding='10' cellspacing='0')
+		tr
+			th 用户名：
+			td
+				input(name='username' id='un' type='text')
+		tr
+			th 密码：
+			td
+				input(name='password' id='psd' type='password')
+		tr
+			th 确认密码：
+			td
+				input(name='password2' id='psd2' type='password')
+		tr
+			td
+				input(type='reset' value='重置')
+			td
+				input(type='submit' value='注册')
+				p#dif 11111111
+script(src='./javascripts/jquery-2.1.4.min.js')
+script.
+	$('#un').on('keyup',function(e){
+		$.ajax({
+			method:'get',
+			url:'/reg/repeat',
+			data:{
+				name:$('#un').val(),
+			}
+		}).done(function(){
+			
+		})
+	});
+
+	
+	$('#psd2').on('blur',function(){
+		console.log(1);
+		$(this).css("background-color","#D6D6FF");
+
+		var psd = $('#psd').val();
+		var psd2 = $('#psd2').val();
+		$('#dif')[0].innerHTML = check(psd,psd2);
+		function check(psd,psd2){
+			if(psd.length<5||psd.length>12){
+				return '请设置5-12位的密码';
+			}else if(psd !== psd2){
+				return '两次输入的密码不一致！';
+			}
+		}
+
+	});

@@ -1,0 +1,28 @@
+extends header
+block content
+  div#blog-contenter
+    ul.blog-list
+      each val, index in [['title1sdjsakdhsadddddddddddddddddddddddddddddddddddddddddddddddddddd','images/cover1.png'], ['title1','images/cover2.png'], ['title1','images/cover3.png'], ['title1','images/cover4.png'], ['title1','images/cover5.png']]
+        li.item
+          section.item-inner
+            header
+              h3.title
+                a.click(href='#') #{val[0]}
+            p.blog-pic
+              img.blog-cover(src='#{val[1]}')
+            p.text.
+              最基本的面向对象思想，写个类吧，在类中实现所有功能.
+              对jQuery.fn进行扩展，可以用 $.fn.method = function ,或者 $.fn.extend({}) .
+              jQuery对象是一个伪数组对象，里面可能含有多个元素，需要针对每一个元素实例化一个对象进行缓存.
+              说到data方法，js对象的 $({}).data ，是把数据放到对象本身上，而元素的 data 方法，是把数据放到 $.cache 中 。所以如何跨框架使用easyui等报错的解决方式，是需要用所属iframe内的jQuery对象，否则取不到。
+              将所有代码放到匿名自执行方法中.
+            .clear
+
+
+      .clear
+
+
+
+
+  script(src='/javascripts/jquery-2.1.4.min.js')
+  script(src='/javascripts/common.js')

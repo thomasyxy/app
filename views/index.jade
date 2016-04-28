@@ -1,0 +1,96 @@
+extends header
+block content
+    div#kbqn-contenter
+      section.info
+        h3 Forest elephants
+        p.
+          In this section, we discuss the lesser known forest elephants.
+          ...this section continues...
+        h3 Mongolian gerbils
+        p.
+          Hordes of gerbils have spread their range far beyond Mongolia.
+          ...this subsection continues...
+        h2 Reptiles
+        p.
+          Reptiles are animals with cold blood.
+          ...this subsection continues...
+        h3 Forest elephants
+        p.
+          In this section, we discuss the lesser known forest elephants.
+          ...this section continues...
+        h3 Mongolian gerbils
+        p.
+          Hordes of gerbils have spread their range far beyond Mongolia.
+          ...this subsection continues...
+        h2 Reptiles
+        p.
+          Reptiles are animals with cold blood.
+          ...this subsection continues...
+      div#imgBar
+        div.slider_bar
+    div#kbqn-essay
+      ul.essay-list
+        each val, index in [['title','time','images/essayimg.png','texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext','reg']]
+          li.article
+            article
+              header
+                h2.title
+                  a.essaylink(href='#{val[4]}') #{val[0]}
+                div.time #{val[1]}
+                img.catlogo(src='images/essayborder.png')
+              section
+                a(href='#{val[4]}')
+                  img.essayimg(src='#{val[2]}')
+              section
+                p.essaytext #{val[3]}
+
+
+    
+    //-侧边导航
+      aside#nav-left
+        ul.left-list
+          each val, index in [['HOME','/'], ['BLOG','blog'], ['ABOUT','about'], ['DATA','data'],['TOOL','tool']]
+            li.item
+              a.itemlink(href='#{val[1]}') #{val[0]}
+
+
+
+    script(src='/javascripts/jquery-2.1.4.min.js')
+    script(src='/javascripts/slider1.2.js')
+    script(src='/javascripts/common.js')
+    script.
+      $("#imgBar").slider({
+          imgs: [
+              "images/1.jpg",
+              "images/2.jpg",
+              "images/3.jpg",
+              "images/4.jpg",
+              "images/5.jpg",
+              "images/6.jpg"
+          ],
+          urls: [
+              'reg',
+              'reg',
+              'reg',
+              'reg',
+              'reg',
+              'reg'
+          ],
+          scale: 5 / 3,
+          border: false,
+          showBar: true, 
+          x: 5,
+          y: 3
+      });
+
+      $("#imgBar").slider("begin");
+      $("#imgBar").slider("stop");
+       
+      $("#imgBar").slider("choseImg",3);
+       
+      $("#imgBar").slider("resize",{border:false,showBar:true}); 
+     
+      
+
+
+    
